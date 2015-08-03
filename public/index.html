@@ -15,16 +15,23 @@
   <script src="js/app.routes.js"></script>
 </head>
 
-<body class="container">
+<body class="container" ng-app="routerApp" ng-controller="mainController as main">
   <header>
   	<nav class="navbar navbar-default">
   	  <div class="navbar-header">
   	    <a class="navbar-brand" href="/">Forget Me Not</a>
   	  </div>
+
+  	  <ul class="nav navbar-nav navbar-right">
+        <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+  	  </ul>
+  	  </nav>
   </header>
 
   <main>
-  where all the angular stuff goes
+    <div class="jumbotron">
+    	<h1>{{ main.bigMessage }}</h1>
+    </div>
   </main>
 </body>
 </html>
