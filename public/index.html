@@ -6,8 +6,9 @@
 	<base href="/">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="custom.css">
 	<style>
-     body { padding-top:50px; }
+     body { padding-top:50px; padding-bottom:50px;  }
 	</style>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
@@ -24,14 +25,18 @@
 
   	  <ul class="nav navbar-nav navbar-right">
         <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-  	  </ul>
+        <li><a href="/game"><i class="fa fa-star"></i> Start</a></li>
+      </ul>
   	  </nav>
   </header>
 
   <main>
-    <div class="jumbotron">
-    	<h1>{{ main.bigMessage }}</h1>
-    </div>
+    <div ng-view></div>
   </main>
+
+  <game>
+    
+  </game>
+
 </body>
 </html>

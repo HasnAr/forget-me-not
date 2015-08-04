@@ -1,0 +1,46 @@
+<div class="text-center">
+  <h1>{{ game.message }}</h1>
+  <h2 class="guess">{{ game.guess }}</h2>
+</div>
+
+<img ng-src="{{game.student.imgSrc}}" class="student-photo center-block img-responsive" alt="student photo">
+
+<form name="inputField" ng-submit="game.submitName()">
+<div class="form-inline center">
+  <div class="form-group">
+    <input ng-model="game.guess" type="text" class="form-control" id="nameField" placeholder="First name">
+  </div>
+  <button type="submit" class="btn btn-info">Submit</button>
+  </div>
+</form>
+
+<!-- fail message -->
+<div ng-show="!game.matches && game.guessSubmitted">
+  <div class="alert alert-danger" role="alert"><p>Not quite. This student's name is <span>{{game.student.name}}</span></p></div>
+</div>
+<!-- success message -->
+<div ng-show="game.matches">
+<div class="alert alert-success" role="alert"><h4>Correct!</h4>Click 'Next student' to keep playing!</div>
+</div>
+
+<!-- only show this box if the input is NOT correct -->
+<form name="hintForm" ng-submit="game.updateHint(game.hint)" ng-hide="game.matches" ng-show="hintForm.$dirty">
+  <div ng-show="game.showHintField" ng-hide="game.isHidden" class="form-group">
+    <h3>Create a hint!</h3>
+    <textarea ng-model="game.hint" type="text" class="form-control" id="hintField" rows="3" placeholder="What story would connect this student with their name?"></textarea>
+    <button type="submit" class="btn btn-primary">Save my hint</button>
+    <div ng-show="game.hasHint" class="alert alert-success" role="alert">Saved!</div>
+  </div>
+</form>
+
+<!-- only show this option if there is a hint saved -->
+<div ng-show="game.hasHint">
+  <button ng-click="game.showSavedHint()" type="button" class="btn btn-warning">Show my hint</button>
+  <div ng-show="game.visible" class="alert alert-info" role="alert">{{ game.hint }}</div>
+</div>
+
+
+<div>
+  <button ng-click="game.getNextStudent()" type="button" class="btn btn-success pull-right">Next Student</button>
+</div>
+
