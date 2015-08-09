@@ -37,7 +37,7 @@ angular.module('routerApp', ['routerRoutes'])
 
   // set submitName() to ng-submit in our game view
   viewModel.submitName = function(){
-  	console.log("submitName");
+  	// console.log("submitName");
   	viewModel.matches = gameFactory.compareGuess(viewModel.guess, viewModel.studentName);
   	viewModel.showHintField = !viewModel.matches;
   	viewModel.guessSubmitted = true;

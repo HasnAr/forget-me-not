@@ -2,6 +2,10 @@
   "name": "routing-app",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.13.3"
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.0",
+    "morgan": "^1.6.1",
+    "path": "^0.11.14"
   }
 }
